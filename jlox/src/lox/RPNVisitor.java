@@ -30,6 +30,11 @@ public class RPNVisitor implements Expr.Visitor<String> {
         throw new UnsupportedOperationException();
     }
 
+    @Override
+    public String visitVariableExpr(Expr.Variable expr) {
+        return "";
+    }
+
     public static void main(String[] args) {
         Expr expression = new Expr.Binary(
             new Expr.Grouping(
