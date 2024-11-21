@@ -10,6 +10,7 @@ public abstract class Stmt {
         R visitIfStmt(If stmt);
         R visitPrintStmt(Print stmt);
         R visitWhileStmt(While stmt);
+        R visitReturnStmt(Return stmt);
         R visitVarStmt(Var stmt);
     }
 
@@ -99,6 +100,21 @@ public abstract class Stmt {
 
         final Expr condition;
         final Stmt body;
+    }
+
+    public static class Return extends Stmt {
+        Return(Token keyword, Expr value) {
+            this.keyword = keyword;
+            this.value = value;
+        }
+
+        @Override
+        <R> R accept(Visitor<R> visitor) {
+            return visitor.visitReturnStmt(this);
+        }
+
+        final Token keyword;
+        final Expr value;
     }
 
     public static class Var extends Stmt {
