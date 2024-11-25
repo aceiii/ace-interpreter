@@ -188,7 +188,6 @@ static void unary() {
 
     // Compile the operand
     parsePrecendence(PREC_UNARY);
-    expression();
 
     switch (operatorType) {
         case TOKEN_BANG: emitByte(OP_NOT); break;
