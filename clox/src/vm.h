@@ -3,6 +3,7 @@
 
 
 #include "chunk.h"
+#include "table.h"
 #include "value.h"
 
 
@@ -14,6 +15,7 @@ typedef struct {
     uint8_t* ip;
     Value stack[STACK_MAX];
     Value* stackTop;
+    Table strings;
     Obj* objects;
 } VM;
 
