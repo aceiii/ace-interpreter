@@ -9,3 +9,5 @@ run: main
 clean:
 	rm main
 
+test: main input/test.lox
+	./main input/test.lox
